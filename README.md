@@ -31,8 +31,9 @@ Install [Vagrant](https://www.vagrantup.com/downloads.html): Vagrant version mus
 
 4) By default, the machine will also install Ruby 2.1.2, Oracle Instant Client 12.1, and QT 5
 
-5) Most of the setup logging ouput is located in your new machine's /home/vagrant/setup.log file
+5) All of the setup logging ouput is located in your new machine's /home/vagrant/setup.log file
 
+6) Added an alias `cukes` that will run as `bundle exec cucumber`
 
 
 ###After Installation

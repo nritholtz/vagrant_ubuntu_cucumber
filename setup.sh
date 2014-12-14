@@ -77,11 +77,13 @@ sudo apt-add-repository -y ppa:ubuntu-sdk-team/ppa >>/home/vagrant/setup.log 2>&
 echo -ne '######                     (33%)\r'
 sudo apt-get update -y >>/home/vagrant/setup.log 2>&1
 echo -ne '#############             (66%)\r'
-sudo apt-get install libqt5webkit5-dev qtdeclarative5-dev qtlocation5-dev qtsensors5-dev libgstreamer0.10-dev libgstreamer-plugins-base0.10-dev qt4-default -y >>/home/vagrant/setup.log 2>&1
+sudo apt-get install libaio1 libqt5webkit5-dev qtdeclarative5-dev qtlocation5-dev qtsensors5-dev libgstreamer0.10-dev libgstreamer-plugins-base0.10-dev qt4-default -y >>/home/vagrant/setup.log 2>&1
 echo -ne '#######################   (100%)\r'
 echo -ne '\n'
 Log 'Finished QT Installation'
 
+#Alias for Running Cucumber from Terminal
+AddConfig 'alias cukes="bundle exec cucumber"'
 
 Log 'Done!'
 sudo shutdown -h now
