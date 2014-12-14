@@ -10,7 +10,7 @@ Install [VirtualBox](https://www.virtualbox.org/wiki/Downloads): Download both t
 
 Install [Vagrant](https://www.vagrantup.com/downloads.html): Vagrant version must be >= 2
 
-
+You may need to [enable virtualization](http://www.sysprobs.com/disable-enable-virtualization-technology-bios) manually.
 
 ###Using The Template
 1) Clone this repo from command line/terminal `git clone https://github.com/nritholtz/vagrant_ubuntu_cucumber.git`
