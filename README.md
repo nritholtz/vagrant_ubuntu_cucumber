@@ -39,4 +39,4 @@ You may need to [enable virtualization](http://www.sysprobs.com/disable-enable-v
 ###After Installation
 1) You should create your own [SSH-key](https://help.github.com/articles/generating-ssh-keys/) for integration with Github and other SSH-enabled applications
 
-2) Install your own Text Editor for use with your applications. I highly recommend [Sublime Text 3](http://www.sublimetext.com/3). Another recommended open-source choice is [Atom](https://atom.io)
+2) I have pre-installed an open-source text editor [Atom](https://atom.io) for your development purposes. You may install your own preferred text editor. I personally use [Sublime Text 3](http://www.sublimetext.com/3). 

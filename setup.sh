@@ -82,6 +82,22 @@ echo -ne '#######################   (100%)\r'
 echo -ne '\n'
 Log 'Finished QT Installation'
 
+
+#######################
+###Atom Installation###
+#######################
+Log 'Starting Atom Installation'
+echo -ne '                     (0%)\r'
+sudo add-apt-repository -y ppa:webupd8team/atom >>/home/vagrant/setup.log 2>&1
+echo -ne '######                     (33%)\r'
+sudo apt-get update -y >>/home/vagrant/setup.log 2>&1
+echo -ne '#############             (66%)\r'
+sudo apt-get install atom -y >>/home/vagrant/setup.log 2>&1
+echo -ne '#######################   (100%)\r'
+echo -ne '\n'
+Log 'Finished Atom Installation'
+
+
 #Alias for Running Cucumber from Terminal
 AddConfig 'alias cukes="bundle exec cucumber"'
 
