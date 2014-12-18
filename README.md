@@ -12,6 +12,14 @@ Install [Vagrant](https://www.vagrantup.com/downloads.html): Vagrant version mus
 
 You may need to [enable virtualization](http://www.sysprobs.com/disable-enable-virtualization-technology-bios) manually.
 
+For Windows users, you may want to set your environment variables so that both VirtualBox and Vagrant point to a specific mapped drive, otherwise it defaults to your Windows registry's default HOME directory. To do so, assuming we want it in the C drive, run the follow commands in command line:
+
+    set VAGRANT_HOME="C:\.vagrant.d"
+    set VBOX_USER_HOME="C:\.VirtualBox"
+    REG ADD HKCU\Environment /v VAGRANT_HOME /t REG_SZ /d "C:\.vagrant.d"
+    REG ADD HKCU\Environment /v VBOX_USER_HOME /t REG_SZ /d "C:\.VirtualBox"
+    "C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" setproperty machinefolder "C:\VirtualBox VMs\"
+
 ###Using The Template
 1) Clone this repo from command line/terminal `git clone https://github.com/nritholtz/vagrant_ubuntu_cucumber.git`
 
@@ -39,4 +47,4 @@ You may need to [enable virtualization](http://www.sysprobs.com/disable-enable-v
 ###After Installation
 1) You should create your own [SSH-key](https://help.github.com/articles/generating-ssh-keys/) for integration with Github and other SSH-enabled applications
 
-2) I have pre-installed an open-source text editor [Atom](https://atom.io) for your development purposes. You may install your own preferred text editor. I personally use [Sublime Text 3](http://www.sublimetext.com/3). 
+2) I have pre-installed an open-source text editor [Atom](https://atom.io) for your development purposes. Start up Atom from Terminal using the command `atom`. You may choose to install your own preferred text editor. I personally use [Sublime Text 3](http://www.sublimetext.com/3). 
