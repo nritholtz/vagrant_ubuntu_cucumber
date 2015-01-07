@@ -8,7 +8,7 @@ A vagrant VM stack for automated testing that has pre-installed RVM/Oracle/QT to
 ###Requirements
 Install [VirtualBox](https://www.virtualbox.org/wiki/Downloads): Download both the platform package for your OS and Oracle VM VirtualBox Extension Pack
 
-Install [Vagrant](https://www.vagrantup.com/downloads.html): Vagrant version must be >= 2
+Install [Vagrant](https://www.vagrantup.com/downloads.html): Vagrant version must be >= 1.7.2
 
 You may need to [enable virtualization](http://www.sysprobs.com/disable-enable-virtualization-technology-bios) manually.
 
