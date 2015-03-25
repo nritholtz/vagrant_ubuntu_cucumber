@@ -78,6 +78,8 @@ echo -ne '######                     (33%)\r'
 sudo apt-get update -y >>/home/vagrant/setup.log 2>&1
 echo -ne '#############             (66%)\r'
 sudo apt-get install libaio1 libqt5webkit5-dev qtdeclarative5-dev qtlocation5-dev qtsensors5-dev libgstreamer0.10-dev libgstreamer-plugins-base0.10-dev qt4-default -y >>/home/vagrant/setup.log 2>&1
+sudo rm /usr/bin/qmake
+sudo ln -s /usr/lib/i386-linux-gnu/qt5/bin/qmake /usr/bin/qmake
 echo -ne '#######################   (100%)\r'
 echo -ne '\n'
 Log 'Finished QT Installation'
