@@ -76,10 +76,17 @@ echo -ne '                     (0%)\r'
 sudo apt-add-repository -y ppa:ubuntu-sdk-team/ppa >>/home/vagrant/setup.log 2>&1
 echo -ne '######                     (33%)\r'
 sudo apt-get update -y >>/home/vagrant/setup.log 2>&1
+sudo apt-get install libaio1 libqt5webkit5-dev qtdeclarative5-dev qtlocation5-dev qtsensors5-dev libgstreamer0.10-dev libgstreamer-plugins-base0.10-dev qt4-default xvfb -y >>/home/vagrant/setup.log 2>&1
+QT_MAJOR_VERSION=5.5
+QT_MINOR_VERSION=5.5.1
+sudo wget --no-verbose http://download.qt.io/official_releases/qt/$QT_MAJOR_VERSION/$QT_MINOR_VERSION/qt-opensource-linux-x86-$QT_MINOR_VERSION.run
+sudo wget --no-verbose https://gist.githubusercontent.com/nritholtz/2df3189e07775d53551f/raw/dfd6b41f3c7c2371d4764a1c4db20ee3af8a1036/unattended-qt-32bit.qs
 echo -ne '#############             (66%)\r'
-sudo apt-get install libaio1 libqt5webkit5-dev qtdeclarative5-dev qtlocation5-dev qtsensors5-dev libgstreamer0.10-dev libgstreamer-plugins-base0.10-dev qt4-default -y >>/home/vagrant/setup.log 2>&1
+sudo chmod +x qt-opensource-linux-x86-$QT_MINOR_VERSION.run 
+sudo xvfb-run ./qt-opensource-linux-x86-$QT_MINOR_VERSION.run --script unattended-qt-32bit.qs >>/home/vagrant/setup.log 2>&1
+sudo rm qt-opensource-linux-x86-$QT_MINOR_VERSION.run unattended-qt-32bit.qs 
 sudo rm /usr/bin/qmake
-sudo ln -s /usr/lib/i386-linux-gnu/qt5/bin/qmake /usr/bin/qmake
+sudo ln -s /home/vagrant/Qt/$QT_MAJOR_VERSION/*/bin/qmake /usr/bin/qmake
 echo -ne '#######################   (100%)\r'
 echo -ne '\n'
 Log 'Finished QT Installation'
