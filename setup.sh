@@ -79,7 +79,7 @@ sudo apt-get update -y >>/home/vagrant/setup.log 2>&1
 sudo apt-get install libaio1 libqt5webkit5-dev qtdeclarative5-dev qtlocation5-dev qtsensors5-dev libgstreamer0.10-dev libgstreamer-plugins-base0.10-dev qt4-default xvfb -y >>/home/vagrant/setup.log 2>&1
 QT_MAJOR_VERSION=5.5
 QT_MINOR_VERSION=5.5.1
-sudo wget --no-verbose http://download.qt.io/official_releases/qt/$QT_MAJOR_VERSION/$QT_MINOR_VERSION/qt-opensource-linux-x86-$QT_MINOR_VERSION.run
+sudo wget --no-verbose http://download.qt.io/archive/qt/$QT_MAJOR_VERSION/$QT_MINOR_VERSION/qt-opensource-linux-x86-$QT_MINOR_VERSION.run
 sudo wget --no-verbose https://gist.githubusercontent.com/nritholtz/2df3189e07775d53551f/raw/dfd6b41f3c7c2371d4764a1c4db20ee3af8a1036/unattended-qt-32bit.qs
 echo -ne '#############             (66%)\r'
 sudo chmod +x qt-opensource-linux-x86-$QT_MINOR_VERSION.run 
