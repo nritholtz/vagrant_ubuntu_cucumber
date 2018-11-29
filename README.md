@@ -43,8 +43,7 @@ For Windows users, you may want to set your environment variables so that both V
 
 6) Added an alias `cukes` that will run as `bundle exec cucumber`
 
-
-###After Installation
+### After Installation
 1) You should create your own [SSH-key](https://help.github.com/articles/generating-ssh-keys/) for integration with Github and other SSH-enabled applications
 
-2) I have pre-installed an open-source text editor [Atom](https://atom.io) for your development purposes. Start up Atom from Terminal using the command `atom`. You may choose to install your own preferred text editor. I personally use [Sublime Text 3](http://www.sublimetext.com/3). 
+2) I have pre-installed an open-source text editor [Visual Studio Code](https://code.visualstudio.com/) for your development purposes. Start up Code from Terminal using the command `code`. You may choose to install your own preferred text editor.

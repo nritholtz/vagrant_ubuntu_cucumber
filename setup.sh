@@ -51,7 +51,7 @@ Log 'Finished Oracle Instant Client Installation'
 ######################
 Log 'Starting RVM and Ruby dependencies Installation'
 sudo apt-get update -y >>/home/vagrant/setup.log 2>&1
-sudo apt-get install git-core curl zlib1g-dev build-essential libssl-dev libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev libcurl4-openssl-dev python-software-properties -y >>/home/vagrant/setup.log 2>&1
+sudo apt-get install git curl zlib1g-dev build-essential libssl-dev libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev libcurl4-openssl-dev -y >>/home/vagrant/setup.log 2>&1
 sudo apt-get install libgdbm-dev libncurses5-dev automake libtool bison libffi-dev -y >>/home/vagrant/setup.log 2>&1
 gpg --keyserver hkp://keys.gnupg.net --recv-keys D39DC0E3 >>/home/vagrant/setup.log 2>&1
 curl -L https://get.rvm.io | bash -s stable >>/home/vagrant/setup.log 2>&1
@@ -76,15 +76,15 @@ echo -ne '                     (0%)\r'
 sudo apt-add-repository -y ppa:ubuntu-sdk-team/ppa >>/home/vagrant/setup.log 2>&1
 echo -ne '######                     (33%)\r'
 sudo apt-get update -y >>/home/vagrant/setup.log 2>&1
-sudo apt-get install libaio1 libqt5webkit5-dev qtdeclarative5-dev qtlocation5-dev qtsensors5-dev libgstreamer0.10-dev libgstreamer-plugins-base0.10-dev qt4-default xvfb -y >>/home/vagrant/setup.log 2>&1
+sudo apt-get install libaio1 libssl1.0-dev libqt5webkit5-dev qtdeclarative5-dev xvfb -y >>/home/vagrant/setup.log 2>&1
 QT_MAJOR_VERSION=5.5
 QT_MINOR_VERSION=5.5.1
-sudo wget --no-verbose http://download.qt.io/archive/qt/$QT_MAJOR_VERSION/$QT_MINOR_VERSION/qt-opensource-linux-x86-$QT_MINOR_VERSION.run
-sudo wget --no-verbose https://gist.githubusercontent.com/nritholtz/2df3189e07775d53551f/raw/dfd6b41f3c7c2371d4764a1c4db20ee3af8a1036/unattended-qt-32bit.qs
+sudo wget --no-verbose http://download.qt.io/archive/qt/$QT_MAJOR_VERSION/$QT_MINOR_VERSION/qt-opensource-linux-x64-$QT_MINOR_VERSION.run
+sudo wget --no-verbose https://gist.githubusercontent.com/nritholtz/9a168ae35fd59d83709a/raw/75317e8fd0b81c667025212e7a427b5eb348fa75/unattended-qt-5.5-64-bit.qs
 echo -ne '#############             (66%)\r'
-sudo chmod +x qt-opensource-linux-x86-$QT_MINOR_VERSION.run 
-sudo xvfb-run ./qt-opensource-linux-x86-$QT_MINOR_VERSION.run --script unattended-qt-32bit.qs >>/home/vagrant/setup.log 2>&1
-sudo rm qt-opensource-linux-x86-$QT_MINOR_VERSION.run unattended-qt-32bit.qs 
+sudo chmod +x qt-opensource-linux-x64-$QT_MINOR_VERSION.run 
+sudo xvfb-run ./qt-opensource-linux-x64-$QT_MINOR_VERSION.run --script unattended-qt-5.5-64-bit.qs >>/home/vagrant/setup.log 2>&1
+sudo rm qt-opensource-linux-x64-$QT_MINOR_VERSION.run unattended-qt-5.5-64-bit.qs
 sudo rm /usr/bin/qmake
 sudo ln -s /home/vagrant/Qt/$QT_MAJOR_VERSION/*/bin/qmake /usr/bin/qmake
 echo -ne '#######################   (100%)\r'
