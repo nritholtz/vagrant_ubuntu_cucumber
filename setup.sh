@@ -25,9 +25,9 @@ sudo mkdir /opt/oracle
 cd /opt/oracle
 
 #Since Oracle requires authentication when downloading file, I am hosting the files on Dropbox to be able to wget
-DownloadFile https://www.dropbox.com/s/2y1ha97e5ihp880/instantclient-sqlplus-linux-12.1.0.2.0.zip?dl=0 instantclient-sqlplus-linux-12.1.0.2.0.zip
-DownloadFile https://www.dropbox.com/s/dxp5hgi4kpqikip/instantclient-sdk-linux-12.1.0.2.0.zip?dl=0 instantclient-sdk-linux-12.1.0.2.0.zip
-DownloadFile https://www.dropbox.com/s/rhny5u3y95c1fjc/instantclient-basic-linux-12.1.0.2.0.zip?dl=0 instantclient-basic-linux-12.1.0.2.0.zip
+DownloadFile https://www.dropbox.com/s/r7sxlrn1tnayqt8/instantclient-sqlplus-linux.x64-12.1.0.2.0.zip?dl=0 instantclient-sqlplus-linux-12.1.0.2.0.zip
+DownloadFile https://www.dropbox.com/s/6wgmopzndyd7j90/instantclient-sdk-linux.x64-12.1.0.2.0.zip?dl=0 instantclient-sdk-linux-12.1.0.2.0.zip
+DownloadFile https://www.dropbox.com/s/zcatpxmgdnugykg/instantclient-basic-linux.x64-12.1.0.2.0.zip?dl=0 instantclient-basic-linux-12.1.0.2.0.zip
 sudo unzip \*.zip >>/home/vagrant/setup.log 2>&1
 sudo rm -rf instant*.zip
 cd instantclient_12_1
@@ -92,20 +92,23 @@ echo -ne '\n'
 Log 'Finished QT Installation'
 
 
-#######################
-###Atom Installation###
-#######################
-Log 'Starting Atom Installation'
-echo -ne '                     (0%)\r'
-sudo add-apt-repository -y ppa:webupd8team/atom >>/home/vagrant/setup.log 2>&1
-echo -ne '######                     (33%)\r'
-sudo apt-get update -y >>/home/vagrant/setup.log 2>&1
-echo -ne '#############             (66%)\r'
-sudo apt-get install atom -y >>/home/vagrant/setup.log 2>&1
-echo -ne '#######################   (100%)\r'
-echo -ne '\n'
-Log 'Finished Atom Installation'
+###################################
+##Visual Studio Code Installation##
+###################################
+Log 'Starting Visual Studio Code installation'
+DownloadFile https://go.microsoft.com/fwlink/?LinkID=760868 code.deb
+sudo dpkg -i code.deb >> /home/vagrant/setup.log 2>&1
+rm code.deb >> /home/vagrant/setup.log 2>&1
+sudo apt-get install -f -y >> /home/vagrant/setup.log 2>&1
+Log 'Finished Visual Studio Code installation'
 
+###################################
+##Git Installation##
+###################################
+Log 'Starting Git installation'
+sudo apt-get install vim git git-flow -y >> /home/vagrant/setup.log 2>&1
+sudo curl -L https://raw.githubusercontent.com/bobthecow/git-flow-completion/master/git-flow-completion.bash -o /etc/bash_completion.d/git-flow >> /home/vagrant/setup.log 2>&1
+Log 'Finished Git installation'
 
 #Alias for Running Cucumber from Terminal
 AddConfig 'alias cukes="bundle exec cucumber"'
