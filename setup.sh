@@ -51,7 +51,7 @@ Log 'Finished Oracle Instant Client Installation'
 ######################
 Log 'Starting RVM and Ruby dependencies Installation'
 sudo apt-get update -y >>/home/vagrant/setup.log 2>&1
-sudo apt-get install git curl zlib1g-dev build-essential libssl-dev libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev libcurl4-openssl-dev -y >>/home/vagrant/setup.log 2>&1
+sudo apt-get install git curl zlib1g-dev build-essential libssl-dev libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libmysqlclient-dev libxml2-dev libxslt1-dev libcurl4-openssl-dev -y >>/home/vagrant/setup.log 2>&1
 sudo apt-get install libgdbm-dev libncurses5-dev automake libtool bison libffi-dev -y >>/home/vagrant/setup.log 2>&1
 gpg --keyserver hkp://keys.gnupg.net --recv-keys D39DC0E3 >>/home/vagrant/setup.log 2>&1
 curl -L https://get.rvm.io | bash -s stable >>/home/vagrant/setup.log 2>&1
@@ -77,6 +77,10 @@ sudo apt-add-repository -y ppa:ubuntu-sdk-team/ppa >>/home/vagrant/setup.log 2>&
 echo -ne '######                     (33%)\r'
 sudo apt-get update -y >>/home/vagrant/setup.log 2>&1
 sudo apt-get install libaio1 libssl1.0-dev libqt5webkit5-dev qtdeclarative5-dev xvfb -y >>/home/vagrant/setup.log 2>&1
+wget http://fr.archive.ubuntu.com/ubuntu/pool/main/g/gst-plugins-base0.10/libgstreamer-plugins-base0.10-0_0.10.36-1_amd64.deb
+wget http://fr.archive.ubuntu.com/ubuntu/pool/universe/g/gstreamer0.10/libgstreamer0.10-0_0.10.36-1.5ubuntu1_amd64.deb
+sudo dpkg -i libgstreamer*.deb
+rm libgstreamer*.deb
 QT_MAJOR_VERSION=5.5
 QT_MINOR_VERSION=5.5.1
 sudo wget --no-verbose http://download.qt.io/archive/qt/$QT_MAJOR_VERSION/$QT_MINOR_VERSION/qt-opensource-linux-x64-$QT_MINOR_VERSION.run
