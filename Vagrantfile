@@ -6,7 +6,6 @@ VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     config.vm.box = "peru/ubuntu-18.04-desktop-amd64"
-    config.vm.box_version = "20181101.01"
     config.vm.box_check_update = false
     config.vm.provider "virtualbox" do |vb|
         # Boot with headless mode

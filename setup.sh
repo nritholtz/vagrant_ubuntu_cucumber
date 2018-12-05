@@ -77,14 +77,14 @@ sudo apt-add-repository -y ppa:ubuntu-sdk-team/ppa >>/home/vagrant/setup.log 2>&
 echo -ne '######                     (33%)\r'
 sudo apt-get update -y >>/home/vagrant/setup.log 2>&1
 sudo apt-get install libaio1 libssl1.0-dev libqt5webkit5-dev qtdeclarative5-dev xvfb -y >>/home/vagrant/setup.log 2>&1
-wget http://fr.archive.ubuntu.com/ubuntu/pool/main/g/gst-plugins-base0.10/libgstreamer-plugins-base0.10-0_0.10.36-1_amd64.deb
-wget http://fr.archive.ubuntu.com/ubuntu/pool/universe/g/gstreamer0.10/libgstreamer0.10-0_0.10.36-1.5ubuntu1_amd64.deb
-sudo dpkg -i libgstreamer*.deb
-rm libgstreamer*.deb
+sudo wget http://fr.archive.ubuntu.com/ubuntu/pool/main/g/gst-plugins-base0.10/libgstreamer-plugins-base0.10-0_0.10.36-1_amd64.deb >>/home/vagrant/setup.log 2>&1
+sudo wget http://fr.archive.ubuntu.com/ubuntu/pool/universe/g/gstreamer0.10/libgstreamer0.10-0_0.10.36-1.5ubuntu1_amd64.deb >>/home/vagrant/setup.log 2>&1
+sudo dpkg -i libgstreamer*.deb >>/home/vagrant/setup.log 2>&1
+sudo rm libgstreamer*.deb >>/home/vagrant/setup.log 2>&1
 QT_MAJOR_VERSION=5.5
 QT_MINOR_VERSION=5.5.1
-sudo wget --no-verbose http://download.qt.io/archive/qt/$QT_MAJOR_VERSION/$QT_MINOR_VERSION/qt-opensource-linux-x64-$QT_MINOR_VERSION.run
-sudo wget --no-verbose https://gist.githubusercontent.com/nritholtz/9a168ae35fd59d83709a/raw/75317e8fd0b81c667025212e7a427b5eb348fa75/unattended-qt-5.5-64-bit.qs
+sudo wget --no-verbose http://download.qt.io/archive/qt/$QT_MAJOR_VERSION/$QT_MINOR_VERSION/qt-opensource-linux-x64-$QT_MINOR_VERSION.run >>/home/vagrant/setup.log 2>&1
+sudo wget --no-verbose https://gist.githubusercontent.com/nritholtz/9a168ae35fd59d83709a/raw/75317e8fd0b81c667025212e7a427b5eb348fa75/unattended-qt-5.5-64-bit.qs >>/home/vagrant/setup.log 2>&1
 echo -ne '#############             (66%)\r'
 sudo chmod +x qt-opensource-linux-x64-$QT_MINOR_VERSION.run 
 sudo xvfb-run ./qt-opensource-linux-x64-$QT_MINOR_VERSION.run --script unattended-qt-5.5-64-bit.qs >>/home/vagrant/setup.log 2>&1
